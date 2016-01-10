@@ -23,4 +23,5 @@ The basic rules of the game are here: http://www.pagat.com/patience/spit.html bu
 
 *whenever a player notices that the two top cards on the center are of the same value, they're obliged to shout "stop!" as this causes the enemy player to collect all the center cards under their face-down pile
 
-
+#Travis build status:
+[![Build Status](https://travis-ci.org/piotr-napadlek/SimpleSpitGame.svg?branch=master)](https://travis-ci.org/piotr-napadlek/SimpleSpitGame)
