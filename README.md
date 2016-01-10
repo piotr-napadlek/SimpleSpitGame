@@ -4,6 +4,7 @@ Variation of Spit/Speed card game in Java.
 The goal of this project is to master git version control system via collaborative github project, and to practice general Java skills, focusing mainly on Java FX based interface, client - server network communication for multiplayer etc.
 #Rules
 The basic rules of the game are here: http://www.pagat.com/patience/spit.html but as the base version we introduce couple of modifications:
+
 *at the beginning cards are split evenly between two players, so each gets 26 face-down cards in a pile
 
 *each player's stack consists of maximally 4 face up cards
