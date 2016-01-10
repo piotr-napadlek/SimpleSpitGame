@@ -1,0 +1,8 @@
+GENERAL:
+-come up with application architecture
+-plan and split the work
+
+SPECIFIC:
+-design user interface with JavaFX
+-introduce card shuffling functionality
+-initialize game mechanism
