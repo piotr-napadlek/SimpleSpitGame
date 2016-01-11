@@ -4,7 +4,7 @@ import java.util.Collection;
 
 import pl.cardgames.spit.common.cards.Card;
 
-public interface Shuffler {
-	public Collection<Card> shuffleWholeDeck();
-	public Collection<Card> shuffleCards(Collection<Card> cards);
+public interface Shuffler<T> {
+	public Collection<T> shuffleWholeDeck();
+	public Collection<T> shuffleCards(Collection<T> cards);
 }
