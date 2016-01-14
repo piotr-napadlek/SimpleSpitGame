@@ -1,6 +1,19 @@
 package pl.cardgames.spit.common.cards;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public final class Card implements Comparable<Card> {
+	public static List<Card> getWholeDeck() {
+		List<Card> deck = new ArrayList<>(52);
+		for (Rank rank : Rank.values()) {
+			for (Suit suit : Suit.values()) {
+				deck.add(new Card(rank, suit));
+			}
+		}
+		return deck;
+	}
+
 	private final Suit suit;
 	private final Rank rank;
 
@@ -16,7 +29,7 @@ public final class Card implements Comparable<Card> {
 	public Rank getRank() {
 		return rank;
 	}
-	
+
 	public int compareRank(Card otherCard) {
 		return this.rank.asInt() - otherCard.rank.asInt();
 	}

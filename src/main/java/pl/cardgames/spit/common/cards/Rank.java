@@ -3,7 +3,6 @@ package pl.cardgames.spit.common.cards;
 import java.util.*;
 
 public enum Rank {
-	ACE_L(1, '1'),
 	TWO(2, '2'), 
 	THREE(3, '3'), 
 	FOUR(4, '4'), 
@@ -21,7 +20,7 @@ public enum Rank {
 	private int cardValue;
 	private char rankCharacter;
 	private final static Map<Character, Rank> rankMap = 
-			new HashMap<Character, Rank>(Rank.values().length, 1.0f);
+			new HashMap<Character, Rank>(Rank.values().length + 1, 1.0f);
 	static {
 		for(Rank rank : Rank.values()) {
 			rankMap.put(rank.asChar(), rank);
