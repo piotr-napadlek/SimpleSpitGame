@@ -47,4 +47,9 @@ public class ShufflerTest {
 		Assert.assertNotNull(intsSorted);
 		Assert.assertTrue(ints.equals(intsSorted));
 	}
+	
+	@Test
+	public void sophisticatedTest() {
+		Assert.assertTrue(true);
+	}
 }
