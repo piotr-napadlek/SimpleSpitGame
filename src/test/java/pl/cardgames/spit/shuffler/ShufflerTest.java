@@ -43,7 +43,7 @@ public class ShufflerTest {
 		// when
 		boolean changed = shuffler.shuffle(intsSorted);
 		// then
-		Assert.assertTrue(changed);
+		Assert.assertFalse(changed);
 		Assert.assertNotNull(intsSorted);
 		Assert.assertTrue(ints.equals(intsSorted));
 	}
