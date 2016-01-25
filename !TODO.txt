@@ -11,6 +11,6 @@ mniammm:
 -implement Shuffler interface with Fisher-yates or random-sort shuffle algorithm on Java generic List 
 http://www.dotnetperls.com/shuffle-java
 -create and implement Deck class with:
-*deck generator (move deck generatic from static Card method)
+*deck generator (move deck generation from static Card method)
 *above shuffler implementation to shuffle
 *dealer to deal the deck to any number of players specified at the input (into the List<List<Card>>)
