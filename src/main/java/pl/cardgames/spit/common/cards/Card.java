@@ -36,8 +36,7 @@ public final class Card implements Comparable<Card> {
 
 	@Override
 	public int compareTo(Card otherCard) {
-		return (this.rank.asInt() - otherCard.rank.asInt()) * 4 + this.suit.asInt()
-				- otherCard.suit.asInt();
+		return (this.rank.asInt() - otherCard.rank.asInt()) * 4 + this.suit.asInt() - otherCard.suit.asInt();
 	}
 
 	@Override
