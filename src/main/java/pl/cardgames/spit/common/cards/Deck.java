@@ -6,66 +6,64 @@ import java.util.Collections;
 import java.util.List;
 
 public class Deck {
+	private List<Card> deckCards;
 
-	public List<Card> deck;
-	public List<List<Card>> playersCards;
-	boolean shuffled = false;
+	public Deck(List<Card> deckCards) {
+		this.deckCards = deckCards;
+	}
 
-	Deck() {
-		deck = new ArrayList<>(52);
+	public Deck() {
+		initializeDeck();
+		shuffle();
+	}
+
+	private void initializeDeck() {
+		deckCards = new ArrayList<>(52);
 		for (Rank rank : Rank.values()) {
 			for (Suit suit : Suit.values()) {
-				deck.add(new Card(rank, suit));
+				deckCards.add(new Card(rank, suit));
 			}
 		}
 	}
 
 	public void showDeck() {
-		for (Card i : deck) {
+		for (Card i : deckCards) {
 			System.out.println(i.getSuit() + " " + i.getRank());
-
 		}
+	}
 
+	private void shuffle() {
+		shuffle(this.deckCards);
 	}
 
 	public boolean shuffle(Collection<Card> deck) {
-
-		if (deck.size() > 2) {
-
-			Collections.shuffle((List<Card>) deck);
-
-			return true;
-		} else {
-
-			return false;
-		}
-
+		Collections.shuffle((List<Card>) deck);
+		return false;
 	}
 
-	public void startShuffle() {
-
-		shuffled = shuffle(this.deck);
-
-	}
-
-	public void dealer(int numberOfPlayers) {
-
+	public List<List<Card>> dealer(int numberOfPlayers) {
+		List<List<Card>> playersCards = new ArrayList<List<Card>>(numberOfPlayers);
 		if ((numberOfPlayers % 2) == 0) {
-			playersCards = new ArrayList<List<Card>>(numberOfPlayers);
-			int splitOfCards = deck.size() / numberOfPlayers;
+			int splitOfCards = deckCards.size() / numberOfPlayers;
 
 			for (int i = 0; i < numberOfPlayers; i++) {
 				playersCards.add(new ArrayList<Card>(splitOfCards));
 				for (int j = 0; j < splitOfCards; j++) {
-					playersCards.get(i).add(new Card(deck.get(j + i * splitOfCards).getRank(),
-							deck.get(j + i * splitOfCards).getSuit()));
+					playersCards.get(i)
+							.add(new Card(deckCards.get(j + i * splitOfCards).getRank(),
+									deckCards.get(j + i * splitOfCards).getSuit()));
 
 				}
 			}
-
-		} else {
 		}
-
+		return playersCards;
 	}
 
+	public List<Card> getDeckCards() {
+		return deckCards;
+	}
+
+	public void setDeckCards(List<Card> deckCards) {
+		this.deckCards = deckCards;
+	}
 }
