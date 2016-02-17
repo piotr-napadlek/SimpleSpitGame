@@ -43,6 +43,14 @@ public class Table {
 		}
 		return cardToMove;
 	}
+	
+	public List<Card> moveCardFormPlayerHandToTableStock(List<Card> hand, int numberOfCardToMove, int stockNumber) {
+		if (hand.isEmpty() == false && (stockNumber == 0 || stockNumber == 1)) {
+			stockCardsOnTable.get(stockNumber).add(hand.get(numberOfCardToMove));
+			hand.remove(numberOfCardToMove);
+		}
+		return hand;
+	}
 
 	public List<List<Card>> getStockCardsOnTable() {
 		return stockCardsOnTable;
