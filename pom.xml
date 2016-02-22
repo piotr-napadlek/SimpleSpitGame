@@ -4,6 +4,12 @@
 	<groupId>pl.cardgames</groupId>
 	<artifactId>spit</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	
+	<modules>
+	   <module>spit-core</module>
+	   <module>spit-gui</module>
+	</modules>
 
 	<properties>
 		<java.version>1.8</java.version>
