@@ -1,30 +1,43 @@
 package pl.cardgames.gui.controller;
 
-import java.io.IOException;
-
 import javafx.fxml.FXML;
-import javafx.scene.Cursor;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import pl.cardgames.gui.controller.util.ControllerBase;
-import pl.cardgames.gui.view.CardFactory;
+import pl.cardgames.gui.view.CardPane;
+import pl.cardgames.spit.common.cards.Card;
+import pl.cardgames.spit.common.cards.Rank;
+import pl.cardgames.spit.common.cards.Suit;
+
+import java.io.IOException;
 
 public class MainViewController extends ControllerBase {
-	private CardFactory cardFactory = new CardFactory();
-	
-	@FXML
-	private AnchorPane cardContainer;
+    private final Delta delta = new Delta();
 
-	@FXML
-	private void initialize() throws IOException {
+    @FXML
+    private AnchorPane cardContainer;
 
-		StackPane card = new StackPane(cardFactory.produceFront("kd"));
-		cardContainer.getChildren().add(card);
-		
-		cardContainer.setOnMouseDragged(mouseEvent -> {
-			cardContainer.setCursor(Cursor.MOVE);
-			cardContainer.setLayoutX(mouseEvent.getSceneX());
-			cardContainer.setLayoutY(mouseEvent.getSceneY());
-		});
-	}
+    @FXML
+    private void initialize() throws IOException {
+
+        StackPane card = new CardPane(new Card(Rank.KING, Suit.CLUB));
+        cardContainer.getChildren().add(card);
+
+        defineDragHandler(card);
+    }
+
+    private void defineDragHandler(final StackPane card) {
+        card.setOnMousePressed(event -> {
+            delta.x = card.getLayoutX() - event.getSceneX();
+            delta.y = card.getLayoutY() - event.getSceneY();
+        });
+        card.setOnMouseDragged(event -> {
+            card.setLayoutX(event.getSceneX() + delta.x);
+            card.setLayoutY(event.getSceneY() + delta.y);
+        });
+    }
+
+    private class Delta {
+        private double x, y;
+    }
 }
