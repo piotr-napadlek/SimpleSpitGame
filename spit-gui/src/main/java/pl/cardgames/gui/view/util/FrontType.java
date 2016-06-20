@@ -1,4 +1,4 @@
-package pl.cardgames.gui.view;
+package pl.cardgames.gui.view.util;
 
 import java.net.URL;
 
